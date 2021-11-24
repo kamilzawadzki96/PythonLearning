@@ -1,4 +1,13 @@
-list = [10, -4, 20, 50, 60, 70 , 100, -50, -40]
+list = []
+
+while True:
+    x = input("Podaj liczbe (x i Enter aby zakonczyc dodawanie): ")
+    if x == "x":
+        break
+    else:
+        list.append(int(x))
+
+
 
 lower = 0
 higher = 0
@@ -9,5 +18,5 @@ for i in list:
     elif i > higher:
         higher = i
 
-print(lower)
-print(higher)
+print("Najnizsza liczba z ciagu podanego to:", lower)
+print("Najwyzsza liczga z caigu podanego to:", higher)
