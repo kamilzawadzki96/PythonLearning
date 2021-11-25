@@ -20,3 +20,6 @@ for i in list:
 
 print("Najnizsza liczba z ciagu podanego to:", lower)
 print("Najwyzsza liczga z caigu podanego to:", higher)
+
+#drukowanie listy
+print(list)
