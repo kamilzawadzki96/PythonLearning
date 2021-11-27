@@ -5,8 +5,9 @@ def decor(func):
         print("=====")
     return wrap
 
+@decor
 def print_text():
     print("Hello world!")
 
-decorated = decor(print_text)
+decorated = print_text
 decorated()
