@@ -5,7 +5,7 @@ def list():
     try:
         textfile = open("list.txt", "x")
     except FileExistsError:
-        print()
+        print("Plik nie istnieje!")
     finally:
         textfile = open("list.txt")
 
