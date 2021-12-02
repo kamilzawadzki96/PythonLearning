@@ -3,9 +3,15 @@ from random import randrange
 while True:
     random = str(randrange(10)) + str(randrange(10)) + str(randrange(10)) + str(randrange(10))
 
-    user = input("Input your number: ")
+    try:
+        user = int(input("Input your 4-digit number (ctrl + c to exit): "))
+    except ValueError:
+        print("Only integers!!!")
+        continue
 
-    if len(user) > 4:
+    struser = str(user)
+
+    if len(struser) > 4:
         print("Too much digits")
         continue
 
@@ -14,8 +20,8 @@ while True:
     bulls = 0
 
     try:
-        for i in range(len(user)):
-            if random[i] == user[i]:
+        for i in range(len(struser)):
+            if random[i] == struser[i]:
                 result.append("Cow")
                 cows += 1
             else:
@@ -25,5 +31,7 @@ while True:
         continue
 
     print(result)
+    print("User input:", user)
+    print("Computer rand:", random)
     print("Cows:",cows)
     print("Bulls:",bulls)

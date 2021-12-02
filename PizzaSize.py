@@ -1,3 +1,10 @@
+######
+"""
+Program wykorzystywany
+"""
+
+
+
 import math
 
 def sense(a,b):

@@ -1,4 +1,3 @@
-import random
 import getpass
 
 comp = 0
