@@ -1,3 +1,9 @@
+########
+
+#Link to exercise https://www.practicepython.org/exercise/2015/11/26/27-tic-tac-toe-draw.html
+
+########
+
 import os
 
 board = [[1, 2, 3], [4, 5, 6], [7 ,8 ,9]]
@@ -24,32 +30,35 @@ def printWinner(win):
     print("Wygrywa:", win)
 
 while True:
-    os.system('cls' if os.name == 'nt' else 'clear')
-
     #definition of winner
     for i in range (0,3):
         if board[i][0] == board[i][1] == board[i][2] or board[0][i] == board[1][i] == board[2][i]:
+            os.system('cls' if os.name == 'nt' else 'clear')
             printWinner(board[i][0])
             board = resetBoard()
             xory = 0
+            input("Press key to continue...")
 
     #diagonally check
     if board[0][0] == board[1][1] == board[2][2] or board[0][2] == board[1][1] == board[2][0]:
+        os.system('cls' if os.name == 'nt' else 'clear')
         printWinner(board[0][0])
         board = resetBoard()
-        xory = 0    
+        xory = 0
+        input("Press key to continue...")   
 
     #print board
+    os.system('cls' if os.name == 'nt' else 'clear')
     printBoard()
 
     #input index
     try:
-        pole = int(input("Numer pola: "))
+        pole = int(input("Input field index (Ctrl + C to exit): "))
         if pole > 9 or pole < 1:
-            print("Podaj ponownie wartosc z zakresu podanego na tablicy!")
+            print("Input number between 1 and 9!")
             continue
     except ValueError:
-        print("Wprowadz liczbe!")
+        print("Input only numbers!")
 
     #value change in index
     for i in range (0,3):
