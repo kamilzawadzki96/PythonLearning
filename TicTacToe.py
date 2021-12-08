@@ -27,7 +27,7 @@ def printBoard():
             print(3* " ---")
 
 def printWinner(win):
-    print("Wygrywa:", win)
+    print("And the winner is:", win)
 
 while True:
     #definition of winner
@@ -50,6 +50,12 @@ while True:
     #print board
     os.system('cls' if os.name == 'nt' else 'clear')
     printBoard()
+
+    #display which player turn it is
+    if xory == 0:
+        print("\nIt's X turn\n")
+    else:
+        print("\nIt's Y turn\n")
 
     #input index
     try:
