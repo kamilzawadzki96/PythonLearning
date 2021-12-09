@@ -8,5 +8,6 @@ soup = BeautifulSoup(r.text)
 for story_heading in soup.find_all("h2"): 
     if story_heading.a: 
         print(story_heading.a.text.replace("\n", " ").strip())
+        print(story_heading.a.get("href"))
     else: 
         print(story_heading.contents[0].strip())
