@@ -7,8 +7,8 @@
 import os
 
 
+#variables
 board = [[1, 2, 3], [4, 5, 6], [7 ,8 ,9]]
-
 xory = 0
 
 #reset board
@@ -16,7 +16,7 @@ def resetBoard():
     list = [[1, 2, 3], [4, 5, 6], [7 ,8 ,9]]
     return list
 
-#print tab
+#print board
 def printBoard():
     for i in range (0,3):
         print(3* " ---")
@@ -62,7 +62,10 @@ while True:
 
     #input index
     try:
-        pole = int(input("Input field index (Ctrl + C to exit): "))
+        pole = input("Input field index (input x to exit): ")
+        if pole == "x":
+            break
+        pole = int(pole)
         if pole > 9 or pole < 1:
             print("Input number between 1 and 9!")
             continue
