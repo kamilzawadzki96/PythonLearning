@@ -6,6 +6,7 @@
 
 import os
 
+
 board = [[1, 2, 3], [4, 5, 6], [7 ,8 ,9]]
 
 xory = 0
@@ -31,6 +32,8 @@ def printWinner(win):
 
 while True:
     #definition of winner
+
+    #vertical and horizontal
     for i in range (0,3):
         if board[i][0] == board[i][1] == board[i][2] or board[0][i] == board[1][i] == board[2][i]:
             os.system('cls' if os.name == 'nt' else 'clear')
