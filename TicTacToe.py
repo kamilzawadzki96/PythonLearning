@@ -58,7 +58,7 @@ while True:
     if xory == 0:
         print("\nIt's X turn\n")
     else:
-        print("\nIt's Y turn\n")
+        print("\nIt's O turn\n")
 
     #input index
     try:
@@ -82,5 +82,5 @@ while True:
                     board[i][y] = "X"
                     xory = 1
                 elif xory == 1:
-                    board[i][y] = "Y"
+                    board[i][y] = "O"
                     xory = 0
