@@ -12,5 +12,4 @@ birthdays = {
 
 print(birthdays.get('birthday'))
 
-birthdays['firstname'] = 'Stefan'
 print(birthdays.get('firstname'))
