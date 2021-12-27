@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import datetime
 
 base_url = 'https://www.wykop.pl/hity/dnia/'
 r = requests.get(base_url)
@@ -8,6 +9,7 @@ content = soup.select('li[class*="link iC"]')
 
 wykoplist = []
 
+#get hity from wykop
 for article in content:
 
     article_rating = article.span.contents[0]
@@ -16,4 +18,9 @@ for article in content:
     row = [article_rating, article_header, article_link]
     wykoplist.append(row)
 
-print(wykoplist)
+#print result
+today = datetime.date.today()
+
+print("Best 10 articles for date: " + today.strftime("%d %B, %Y"))
+for rows in wykoplist[:10]:
+    print("Upvotes: " + rows[0] + " / " + rows[1] + " / " + rows[2])
