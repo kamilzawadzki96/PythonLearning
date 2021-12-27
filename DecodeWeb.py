@@ -16,7 +16,8 @@ def hotArticlesWykop(url, today):
             article_rating = article.span.contents[0]
             article_header = article.h2.a.contents[0]
             article_link = article.h2.a.get("href")
-            row = [article_rating, article_header, article_link]
+            article_date = article.time.contents[0]
+            row = [article_rating, article_header, article_link, article_date]
             wykoplist.append(row)
         except AttributeError:
             continue
@@ -25,14 +26,14 @@ def hotArticlesWykop(url, today):
 
     print("Best 10 articles for date: " + today.strftime("%d %B, %Y") + "\n")
     for rows in wykoplist[:10]:
-        print("Upvotes:" + rows[0] + " / " + rows[1] + " / " + rows[2])
+        print("Upvotes:" + rows[0] + " / " + rows[1] + " / " + rows[2] + " / " + rows[3])
     print("")
 
 today = datetime.date.today()
 
 articlerange = {
-    'y': "roku"+today.strftime("%Y"),
-    'm': "miesiaca"+today.strftime("%Y/%m"),
+    'y': "roku/"+today.strftime("%Y"),
+    'm': "miesiaca/"+today.strftime("%Y/%m"),
     'w': "tygodnia",
     'd': "dnia"
 }
