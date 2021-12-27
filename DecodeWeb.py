@@ -2,25 +2,52 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 
-base_url = 'https://www.wykop.pl/hity/dnia/'
-r = requests.get(base_url)
-soup = BeautifulSoup(r.text)
-content = soup.select('li[class*="link iC"]')
+def hotArticlesWykop(url, today):
+    base_url = 'https://www.wykop.pl/hity/' + url
+    r = requests.get(base_url)
+    soup = BeautifulSoup(r.text)
+    content = soup.select('div[class*="article"]')
 
-wykoplist = []
+    wykoplist = []
 
-#get hity from wykop
-for article in content:
+    #get hity from wykop
+    for article in content:
+        try:
+            article_rating = article.span.contents[0]
+            article_header = article.h2.a.contents[0]
+            article_link = article.h2.a.get("href")
+            row = [article_rating, article_header, article_link]
+            wykoplist.append(row)
+        except AttributeError:
+            continue
 
-    article_rating = article.span.contents[0]
-    article_header = article.h2.a.contents[0]
-    article_link = article.h2.a.get("href")
-    row = [article_rating, article_header, article_link]
-    wykoplist.append(row)
+    #print result
 
-#print result
+    print("Best 10 articles for date: " + today.strftime("%d %B, %Y") + "\n")
+    for rows in wykoplist[:10]:
+        print("Upvotes:" + rows[0] + " / " + rows[1] + " / " + rows[2])
+    print("")
+
 today = datetime.date.today()
 
-print("Best 10 articles for date: " + today.strftime("%d %B, %Y"))
-for rows in wykoplist[:10]:
-    print("Upvotes: " + rows[0] + " / " + rows[1] + " / " + rows[2])
+articlerange = {
+    'y': "roku"+today.strftime("%Y"),
+    'm': "miesiaca"+today.strftime("%Y/%m"),
+    'w': "tygodnia",
+    'd': "dnia"
+}
+
+while True: 
+    url = input("Give me range of date articles, that are you interested in (y - yearly, m - monthly, w - weekly, d - daily, q to quit program): ")
+
+
+
+    if url == 'y' or url == 'm' or url == 'w' or url == 'd':
+            range = articlerange[url]
+            hotArticlesWykop(range, today)
+    else:
+        if url == 'q':
+            print("Bye bye!")
+            break
+        else:
+            print("Give me value form printed range!")
