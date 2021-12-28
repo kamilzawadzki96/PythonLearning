@@ -17,7 +17,7 @@ def hotArticlesWykop(url, today):
             article_header = article.h2.a.contents[0]
             article_link = article.h2.a.get("href")
             article_date = article.time.contents[0]
-            row = [article_rating, article_header, article_link, article_date]
+            row = [article_rating, article_date, article_header, article_link]
             wykoplist.append(row)
         except AttributeError:
             continue
