@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
+import sys
 
 def hotArticlesWykop(url, today):
     base_url = 'https://www.wykop.pl/hity/' + url
@@ -39,7 +40,8 @@ articlerange = {
 }
 
 while True: 
-    url = input("Give me range of date articles, that are you interested in (y - yearly, m - monthly, w - weekly, d - daily, q to quit program): ")
+    #url = input("Give me range of date articles, that are you interested in (y - yearly, m - monthly, w - weekly, d - daily, q to quit program): ")
+    url = sys.argv[1]
 
 
 
@@ -52,3 +54,5 @@ while True:
             break
         else:
             print("Give me value form printed range!")
+    
+    input()
