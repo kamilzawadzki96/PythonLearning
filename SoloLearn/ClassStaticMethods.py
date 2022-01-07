@@ -13,3 +13,16 @@ class Rectangle:
 
 square = Rectangle.new_square(10)
 print(square.area())
+
+class Static:
+    def __init__(self, x):
+        print(x)
+
+    @staticmethod
+    def checking(x):
+        if x == 10:
+            print("Dont put 10 to variable!!!")
+        else:
+            print("U have luck!")
+
+Static.checking(10)
