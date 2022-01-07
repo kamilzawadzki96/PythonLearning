@@ -14,6 +14,8 @@ class Rectangle:
 square = Rectangle.new_square(10)
 print(square.area())
 
+print("-----")
+
 class Static:
     def __init__(self, x):
         print(x)
