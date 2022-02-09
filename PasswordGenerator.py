@@ -15,8 +15,6 @@ p = "".join(random.sample(string.ascii_uppercase,1) + random.sample(string.ascii
 print(str(p))
 
 #Passowrd with random word
-p = RandomWords()
-p = p.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun,verb", minCorpusCount=1, maxCorpusCount=10, minDictionaryCount=1, maxDictionaryCount=10, minLength=5, maxLength=10)
-p = p.capitalize() + "".join(random.sample(special_signs,1) + random.sample(string.digits, 4))
+p = RandomWords().get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun,verb", minCorpusCount=1, maxCorpusCount=10, minDictionaryCount=1, maxDictionaryCount=10, minLength=5, maxLength=10).capitalize() + "".join(random.sample(special_signs,1) + random.sample(string.digits, 4))
 
 print(p)
