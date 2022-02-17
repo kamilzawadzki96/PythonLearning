@@ -20,5 +20,5 @@ p = RandomWords().get_random_word(hasDictionaryDef="true", includePartOfSpeech="
 print(p)
 
 #Meaning of random password
-meaning = PyDictionary.meaning(p)
-print(meaning)
+#meaning = PyDictionary.meaning(p)
+#print(meaning)
